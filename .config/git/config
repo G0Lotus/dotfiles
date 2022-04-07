@@ -1,0 +1,29 @@
+[user]
+	email = hk451284087@gmail.com
+	name = kun.hk.huang
+[alias]
+	a = add
+	au = add -u
+	s = status
+	su = status -u
+	ct = commit
+	ps = push
+	pl = pull
+	br = branch -a
+	fp = format-patch
+	cp = cherry-pick
+	d  = difftool
+[core]
+	editor=vim
+[color]
+	status = auto
+	branch = auto
+	log = auto
+[log]
+	date = short
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
