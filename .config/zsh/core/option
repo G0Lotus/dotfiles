@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+
+setopt APPEND_HISTORY
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+# Completion
+zmodload -i zsh/complist
+
+autoload -Uz compinit
+
+unsetopt MENU_COMPLETE
+unsetopt FLOW_CONTROL
+setopt AUTO_MENU
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
+
+zle_highlight=('paste:none')
+zstyle ':completion:*' menu select
+# zstyle ':completion::complete:lsof:*' menu yes select
+#_comp_options+=(globdots)		# Include hidden files.
+zstyle ':completion:*' special-dirs true
+
+# zstyle ':completion:*' list-colors ''
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Colors
+autoload -Uz colors && colors
+
+# FZF
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always --icons -D $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat $word'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+compinit
