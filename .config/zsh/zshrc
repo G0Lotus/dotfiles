@@ -10,17 +10,11 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "Aloxaf/fzf-tab"
 
 #zsh_apply_theme
-which starship &> /dev/null
-if [ $? -ne 0 ]; then
-	curl -sS https://starship.rs/install.sh | sh
-fi
-eval "$(starship init zsh)"
+command -v starship &> /dev/null && eval "$(starship init zsh)"
 
-if type neofetch &> /dev/null; then
-    neofetch
-fi
+# display system info
+command -v neofetch &> /dev/null && clear && neofetch
 
-
+# fzf setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
