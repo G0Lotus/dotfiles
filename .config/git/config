@@ -1,0 +1,4 @@
+[include]
+    path = config.user
+[url "https://github.com/"]
+    insteadOf = https://hub.nuaa.cf/
