@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./libs.sh
+source "$HOME/.config/yadm/bootstrap.d/libs.sh"
 
 yay_install neovim fd ripgrep nodejs lua npm unzip lazygit
 if [ $? -ne 0 ]; then

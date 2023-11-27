@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./libs.sh
+source "$HOME/.config/yadm/bootstrap.d/libs.sh"
 
 sudo sed -i "s/.*ParallelDownloads.*/ParallelDownloads = $(nproc)/g" /etc/pacman.conf
 sudo pacman-key --init

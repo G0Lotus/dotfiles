@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./libs.sh
+source "$HOME/.config/yadm/bootstrap.d/libs.sh"
 
 pacman_install zsh
 if [ ! "$SHELL" = "/bin/zsh" ]; then
