@@ -3,6 +3,7 @@
 source "$HOME/.config/yadm/bootstrap.d/libs.sh"
 
 sudo sed -i "s/.*ParallelDownloads.*/ParallelDownloads = $(nproc)/g" /etc/pacman.conf
+sudo sed -i "s/NoProgressBar/#NoProgressBar/g" /etc/pacman.conf
 sudo pacman-key --init
 sudo pacman-key --populate
 pacman_install archlinux-keyring reflector
@@ -10,4 +11,3 @@ sudo reflector --latest 20 --fastest 20 --threads 20 --sort rate --protocol http
 sudo pacman -Syyu --noconfirm
 yadm decrypt
 yadm remote set-url origin git@github.com:G0Lotus/dotfiles.git
-
