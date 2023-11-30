@@ -1,4 +1,4 @@
 [include]
     path = config.user
-[url "https://hub.nuaa.cf/"]
-    insteadOf = https://github.com/
+[url "https://mirror.ghproxy.com/https://github.com/"]
+	insteadOf = https://github.com/
